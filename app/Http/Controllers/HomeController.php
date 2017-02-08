@@ -15,7 +15,7 @@ class HomeController extends Controller
 
     public function showIndex(Request $request){
 
-        $sort = false;
+        $sortBy = 'title';
         $order = 'asc';
         if ($request->has('sortBy')){
             // Sorting
@@ -26,7 +26,6 @@ class HomeController extends Controller
                 return redirect('/');
             }
 
-            $sort = true;
         }
 
         if ($order == "asc"){
@@ -43,27 +42,19 @@ class HomeController extends Controller
                 ->orWhere('year', 'LIKE', '%'.$searchString.'%')
                 ->orWhere('genre', 'LIKE', '%'.$searchString.'%');
 
-            if ($sort){
-                $books = $books->orderBy($sortBy, $order);
-            } else {
-                $books = $books->inRandomOrder();
-            }
+            $books = $books->orderBy($sortBy, $order);
 
             $books = $books->paginate(15);
 
-            return view('search-results', ['books' => $books, 'string' => $searchString, 'order' => $invertOrder]);
+            return view('search-results', ['books' => $books, 'string' => $searchString, 'invertOrder' => $invertOrder, 'order' => $order, 'sortBy' => $sortBy]);
 
         } else {
             // Display index page
-            if ($sort){
-                $books = \App\Book::orderBy($sortBy, $order);
-            } else {
-                $books = \App\Book::inRandomOrder();
-            }
+            $books = \App\Book::orderBy($sortBy, $order);
 
             $books = $books->paginate(15);
 
-            return view('welcome', ['books' => $books, 'string' => '', 'order' => $invertOrder]);
+            return view('welcome', ['books' => $books, 'string' => '', 'invertOrder' => $invertOrder, 'order' => $order, 'sortBy' => $sortBy]);
         }
     }
 

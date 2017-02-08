@@ -9,12 +9,16 @@
         <div class="row justify-content-md-center">
             <table class="table table-bordered table-hover">
                 <thead class="thead-default">
-                    <tr>
-                        <th style="width: 45%;"><a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'title', 'order' => $order]) }}">Pavadinimas</a></th>
-                        <th style="width: 15%;"><a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'year', 'order' => $order]) }}">Leidimo metai</a></th>
-                        <th style="width: 25%;"><a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'author', 'order' => $order]) }}">Autorius</a></th>
-                        <th style="width: 15%;"><a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'genre', 'order' => $order]) }}">Žanras</a></th>
-                    </tr>
+                <tr>
+                    <th style="width: 45%;">
+                        <a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'title', 'order' => $invertOrder]) }}">Pavadinimas</a>@if ($sortBy == 'title') <i class="fa fa-sort-{{ $order }}" aria-hidden="true"></i> @endif</th>
+                    <th style="width: 15%;">
+                        <a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'year', 'order' => $invertOrder]) }}">Leidimo metai</a>@if ($sortBy == 'year') <i class="fa fa-sort-{{ $order }}" aria-hidden="true"></i> @endif</th>
+                    <th style="width: 25%;">
+                        <a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'author', 'order' => $invertOrder]) }}">Autorius</a>@if ($sortBy == 'author') <i class="fa fa-sort-{{ $order }}" aria-hidden="true"></i> @endif</th>
+                    <th style="width: 15%;">
+                        <a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'genre', 'order' => $invertOrder]) }}">Žanras</a>@if ($sortBy == 'genre') <i class="fa fa-sort-{{ $order }}" aria-hidden="true"></i> @endif</th>
+                </tr>
                 </thead>
                 @forelse ($books as $book)
                     <tr>
