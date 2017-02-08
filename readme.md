@@ -5,6 +5,7 @@
 * Search by Title/Year/Author/Genre
 * Pagination
 * Single book page
+* Auto-seeding database on setup
 
 ## Built & tested with
 * Laravel 5.4
