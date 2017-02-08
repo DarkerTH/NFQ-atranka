@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Books database</title>
+		<title>Fantasy knygos</title>
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +12,18 @@
 		<style>
 			body {
 				padding-top: 1rem;
+				 background: url(/spaceartist.jpg) no-repeat center center fixed;
+				 -webkit-background-size: cover;
+				 -moz-background-size: cover;
+				 -o-background-size: cover;
+				 background-size: cover;
+			 }
+
+			.container {
+				background-color: white;
+				opacity: 0.9;
+				padding: 1rem;
+				border-radius: 5px;
 			}
 		</style>
 	</head>
