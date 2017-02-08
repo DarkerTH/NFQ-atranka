@@ -21,7 +21,7 @@
 
 5. Seed database
     ```bash
-    php artisan seed
+    php artisan db:seed
     ```
     
 Tested with PHP 7.0.
