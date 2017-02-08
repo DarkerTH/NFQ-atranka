@@ -23,3 +23,5 @@
     ```bash
     php artisan seed
     ```
+    
+Tested with PHP 7.0.
