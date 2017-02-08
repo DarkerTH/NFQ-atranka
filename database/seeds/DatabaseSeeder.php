@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
                 if (empty($title))
                     $title = current(self::explodeBetween('<span itemprop="name">', '</span>', $fetchBookPage));
 
+                if (empty($title) || strlen($title) > 30){
+                    continue;
+                }
+
                 $genre = 'Fantastika';
 
                 DB::table('books')->insert([
