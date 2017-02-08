@@ -14,3 +14,14 @@
     ```bash
     php artisan key:generate
     ```
+4. Migrate database
+    ```bash
+    php artisan migrate
+    ```
+
+5. Seed database
+    ```bash
+    php artisan seed
+    ```
+    
+Tested with PHP 7.0.
