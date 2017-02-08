@@ -19,14 +19,18 @@
                     <th style="width: 15%;"><a href="{{ \Request::fullUrlWithQuery(['sortBy' => 'genre', 'order' => $order]) }}">Žanras</a></th>
                 </tr>
                 </thead>
-                @foreach ($books as $book)
+                @forelse ($books as $book)
                     <tr>
                         <td><a href="{{ url('/') }}/book/{{ $book->id }}/?r={{ urlencode(\Request::fullUrl()) }}">{{ $book->title }}</a></td>
                         <td>{{ $book->year }}</td>
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->genre }}</td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td class="text-center" colspan="4">Knygų rasti nepavyko.</td>
+                    </tr>
+                @endforelse
             </table>
         </div>
 
