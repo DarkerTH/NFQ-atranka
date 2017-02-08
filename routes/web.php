@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'HomeController@showIndex');
+Route::get('/book/{id}', 'HomeController@showBook');
